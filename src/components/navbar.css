@@ -1,4 +1,3 @@
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -49,20 +48,21 @@ nav .menu span {
   nav .menu {
     display: flex;
   }
+}
 
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+nav {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-  /* nav ul {
+/* nav ul {
     display: none;
     flex-direction: column;
     width: 100%;
     margin-bottom: 0.25rem;
   } */
 
-  /* nav ul.open {
+/* nav ul.open {
     display: flex;
   }
 
