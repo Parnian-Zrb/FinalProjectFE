@@ -22,6 +22,10 @@ const Navbar = () => {
         <li>
           <Link to="/UserProfile">User Profile</Link>
         </li>
+
+        <li>
+          <Link to="/AboutUs">About Us</Link>
+        </li>
       </ul>
     </nav>
   );
