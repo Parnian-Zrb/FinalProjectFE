@@ -10,6 +10,7 @@ import RecipeUpload from "./pages/RecipeUpload.tsx";
 import Home from "./pages/Home.tsx";
 import "./components/Navbar.tsx";
 import UserProfile from "./pages/UserProfile.tsx";
+import AboutUs from "./pages/AboutUs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/userProfile",
         element: <UserProfile />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
       },
     ],
   },
