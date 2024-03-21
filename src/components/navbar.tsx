@@ -16,7 +16,7 @@ const Navbar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <Link to="/AddProduct">Add Product</Link>
+          <Link to="/recipeUpload">Recipe Upload</Link>
         </li>
 
         <li>
