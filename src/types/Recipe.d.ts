@@ -7,7 +7,7 @@ export interface RecipeType {
     description: string; // Description of the recipe
     ingredients: String[]; // Array of ingredients
     preparation_steps:String[]
-    time_required: number; // the time needed 
+    time_required: string; // the time needed 
     difficulty:string[];
     tags:string[]; //Vegeterain,....
     category:string[]; // Category of the recipe (e.g., Appetizer, Main Course, Dessert)

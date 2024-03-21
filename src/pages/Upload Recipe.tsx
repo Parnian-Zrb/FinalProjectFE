@@ -12,7 +12,7 @@ const RecipeSchema = Yup.object().shape({
 const AddRecipe = () => {
   const formik = useFormik({
     initialValues: {
-      id: "", // Add id field with an empty string
+      id: "", 
       title: "",
       description: "",
       ingredients: [],
@@ -20,7 +20,7 @@ const AddRecipe = () => {
       time_required: "",
       difficulty: [],
       tags: [],
-      category: "",
+      category: [],
       image_url: "",
       createdAt: new Date(),
       ServingSize: [],
