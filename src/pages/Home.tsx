@@ -1,11 +1,6 @@
+import Navbar from "../components/Navbar.tsx";
 const Home = () => {
-  return (
-    <>
-      <div>Home-hello</div>
-      <h1>Hello</h1>
-      <p> test 2</p>
-    </>
-  );
+  return <></>;
 };
 
 export default Home;
