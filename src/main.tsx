@@ -8,8 +8,8 @@ import { Layout } from "./components/Layout.tsx";
 import RecipeDetails from "./pages/RecipeDetails.tsx";
 import RecipeUpload from "./pages/RecipeUpload.tsx";
 import Home from "./pages/Home.tsx";
-import Favorites from "./pages/Favorites.tsx";
 import "./components/Navbar.tsx";
+import UserProfile from "./pages/UserProfile.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/Favorites",
-        element: <Favorites />,
+        path: "/userProfile",
+        element: <UserProfile />,
       },
     ],
   },
