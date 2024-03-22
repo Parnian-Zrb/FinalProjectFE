@@ -14,3 +14,13 @@ p {
   margin-left: 10%;
   margin-right: 10%;
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: dashed;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
