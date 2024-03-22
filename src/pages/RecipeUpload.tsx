@@ -1,3 +1,4 @@
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/RecipeApi";
@@ -97,3 +98,11 @@ const AddRecipe = () => {
 };
 
 export default AddRecipe;
+
+import React from "react";
+
+const RecipeUpload = () => {
+  return <div>RecipeUpload</div>;
+};
+
+export default RecipeUpload;
