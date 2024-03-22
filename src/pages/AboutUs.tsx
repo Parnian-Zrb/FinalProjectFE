@@ -1,7 +1,9 @@
-import ProfileCard from "../components/ProfileCard";
-import "./AboutUs.css";
+import React from "react";
+import ContactUsForm from "../components/ContactUsForm";
 
-const AboutUs = () => {
+import ProfileCard from "../components/ProfileCard";
+
+const AboutUs: React.FC = () => {
   return (
     <div>
       <h1>AboutUs</h1>
@@ -20,6 +22,7 @@ const AboutUs = () => {
         <ProfileCard name={""} image={""} bio={""} />
         <ProfileCard name={""} image={""} bio={""} />
       </div>
+      <ContactUsForm />
     </div>
   );
 };
