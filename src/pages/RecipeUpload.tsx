@@ -1,4 +1,3 @@
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/RecipeApi";
@@ -7,13 +6,15 @@ const RecipeSchema = Yup.object().shape({
   title: Yup.string().required("Recipe name is required"),
   category: Yup.string().required("Category is required"),
   description: Yup.string().required("Description is required"),
-  image: Yup.string().url("Must be a valid URL").required("Image URL is required"),
+  image: Yup.string()
+    .url("Must be a valid URL")
+    .required("Image URL is required"),
 });
 
-const AddRecipe = () => {
+const RecipeUpload = () => {
   const formik = useFormik({
     initialValues: {
-      id: "", 
+      id: "",
       title: "",
       description: "",
       ingredients: [],
@@ -30,7 +31,7 @@ const AddRecipe = () => {
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await createRecipe(values); 
+        const response = await createRecipe(values);
         console.log("Recipe added successfully", response.data);
         resetForm({});
       } catch (error) {
@@ -95,14 +96,6 @@ const AddRecipe = () => {
       <button type="submit">Add Recipe</button>
     </form>
   );
-};
-
-export default AddRecipe;
-
-import React from "react";
-
-const RecipeUpload = () => {
-  return <div>RecipeUpload</div>;
 };
 
 export default RecipeUpload;

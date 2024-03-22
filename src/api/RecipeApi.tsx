@@ -1,11 +1,11 @@
 //the same as api RecipeApi.tsx
 import axios from "axios";
-import { RecipeType } from "../types/Recipe";
+import { RecipeType } from "../types/recipe";
 
-const API_URL = "";//need to be completed after backend
+const API_URL = ""; //need to be completed after backend
 
 // Fetch all Recipe
-export const getAllRecipes= () => axios.get(API_URL);
+export const getAllRecipes = () => axios.get(API_URL);
 
 // Create a newRecipe
 export const createRecipe = (RecipeData: RecipeType) =>
