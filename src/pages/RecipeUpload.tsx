@@ -98,11 +98,3 @@ const AddRecipe = () => {
 };
 
 export default AddRecipe;
-
-import React from "react";
-
-const RecipeUpload = () => {
-  return <div>RecipeUpload</div>;
-};
-
-export default RecipeUpload;
