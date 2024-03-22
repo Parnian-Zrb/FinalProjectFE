@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ProfileType } from "../Types/ProfileTypes";
+import { ProfileType } from "../types/ProfileTypes";
 import "../pages/AboutUs.css";
 
 export default function ProfileCard({ name, image, bio }: ProfileType) {
