@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getRecipeById, deleteProduct } from "../api/RecipeApi";
 import { RecipeType } from "../types/Recipe";
@@ -50,4 +50,4 @@ const RecipeDetails = () => {
   );
 };
 
-export default RecipeDetails;
+export default RecipeDetails; */
