@@ -1,6 +1,8 @@
 import React from "react";
 import ContactUsForm from "../components/ContactUsForm";
 
+import ProfileCard from "../components/RecipeCard";
+
 const AboutUs: React.FC = () => {
   return (
     <div>

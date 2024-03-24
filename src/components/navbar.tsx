@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../components/Navbar.css";
+import "./Navbar.css";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -15,9 +15,6 @@ const Navbar = () => {
         <span></span>
       </div>
       <ul className={menuOpen ? "open" : ""}>
-        <li>
-          <Link to="/recipeDetails">Recipe Details</Link>
-        </li>
         <li>
           <Link to="/recipeUpload">Recipe Upload</Link>
         </li>
