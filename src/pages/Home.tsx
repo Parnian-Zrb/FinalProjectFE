@@ -1,3 +1,6 @@
+import RecipeCard from "../components/RecipeCard";
+import "./Home.css";
+
 const Home = () => {
   return (
     <>
@@ -18,5 +21,7 @@ const Home = () => {
     </>
   );
 };
-
+<div className="recipeContainer">
+  <RecipeCard name={""} image={""} description={""} rating={""} />
+</div>;
 export default Home;
