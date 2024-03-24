@@ -4,9 +4,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "../pages/AboutUs.css";
 
-export default function ProfileCard({ name, image, description, Rating }: any) {
+export default function ProfileCard({ name, image, description, rating }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -25,11 +24,10 @@ export default function ProfileCard({ name, image, description, Rating }: any) {
           over 6,000 species, ranging across all continents except Antarctica
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {Rating}
+          {rating}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
