@@ -4,10 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ProfileType } from "../types/ProfileTypes";
 import "../pages/AboutUs.css";
 
-export default function ProfileCard({ name, image, bio }: ProfileType) {
+export default function ProfileCard({ name, image, bio }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
