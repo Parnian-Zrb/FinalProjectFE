@@ -6,8 +6,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "../pages/AboutUs.css";
 
-
-
 export default function ProfileCard({ name, image, description, rating }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -27,13 +25,10 @@ export default function ProfileCard({ name, image, description, rating }: any) {
           over 6,000 species, ranging across all continents except Antarctica
         </Typography>
         <Typography variant="body2" color="text.secondary">
-
           {rating}
         </Typography>
       </CardContent>
-      
 
-   
       <CardActions>
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
