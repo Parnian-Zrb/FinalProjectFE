@@ -1,7 +1,8 @@
-// the same as api RecipeApi.tsx
 import axios from "axios";
+
+// the same as api RecipeApi.tsx
 import { RecipeType } from "../types/Recipe";
-const API_URL = "http://localhost:3000/api"; // Replace with your actual API base URL
+const API_URL = "http://localhost:3000/api/recipe";
 // Fetch all Recipe
 export const getAllRecipes = () => axios.get(API_URL);
 
