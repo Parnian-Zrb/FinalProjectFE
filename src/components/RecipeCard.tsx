@@ -4,6 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+
+export default function ProfileCard({ name, image, description, rating }: any) {
+=======
 import "../pages/AboutUs.css";
 
 export default function ProfileCard({ name, image, bio }: any) {
@@ -16,6 +19,20 @@ export default function ProfileCard({ name, image, bio }: any) {
         title="green iguana"
       />
       <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {image}
+          {name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}Lizards are a widespread group of squamate reptiles, with
+          over 6,000 species, ranging across all continents except Antarctica
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {rating}
+        </Typography>
+      </CardContent>
+      <CardActions>
+=======
         <Typography gutterBottom variant="h5" component="div">
           {image}
           {name}Lizard

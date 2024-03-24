@@ -18,6 +18,9 @@ const Home = () => {
         specific dishes or browse through our categories to discover something
         that suits your taste. We hope you enjoy your stay with us!
       </p>
+      <div className="recipeContainer">
+        <RecipeCard name={""} image={""} description={""} rating={""} />
+      </div>
     </>
   );
 };
