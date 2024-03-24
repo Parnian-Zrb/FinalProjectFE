@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function ProfileCard({ name, image, description, rating }: any) {
+export default function RecipeCard({ name, image, description, rating }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -28,6 +28,7 @@ export default function ProfileCard({ name, image, description, rating }: any) {
         </Typography>
       </CardContent>
       <CardActions>
+        <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
