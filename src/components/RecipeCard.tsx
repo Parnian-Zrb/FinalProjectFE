@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ProfileType } from "../Types/ProfileTypes";
 import "../pages/AboutUs.css";
+import React from "react";
 
-export default function ProfileCard({ name, image, bio }: ProfileType) {
+export default function ProfileCard({ name, image, description, Rating }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -17,13 +17,16 @@ export default function ProfileCard({ name, image, bio }: ProfileType) {
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="h2">
           {image}
-          {name}Lizard
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {bio}Lizards are a widespread group of squamate reptiles, with over
-          6,000 species, ranging across all continents except Antarctica
+          {description}Lizards are a widespread group of squamate reptiles, with
+          over 6,000 species, ranging across all continents except Antarctica
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {Rating}
         </Typography>
       </CardContent>
       <CardActions>
