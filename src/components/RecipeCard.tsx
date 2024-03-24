@@ -6,6 +6,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function ProfileCard({ name, image, description, rating }: any) {
+=======
+import "../pages/AboutUs.css";
+
+export default function ProfileCard({ name, image, bio }: any) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -28,6 +32,18 @@ export default function ProfileCard({ name, image, description, rating }: any) {
         </Typography>
       </CardContent>
       <CardActions>
+=======
+        <Typography gutterBottom variant="h5" component="div">
+          {image}
+          {name}Lizard
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {bio}Lizards are a widespread group of squamate reptiles, with over
+          6,000 species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>

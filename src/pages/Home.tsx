@@ -24,5 +24,7 @@ const Home = () => {
     </>
   );
 };
-
+<div className="recipeContainer">
+  <RecipeCard name={""} image={""} description={""} rating={""} />
+</div>;
 export default Home;
