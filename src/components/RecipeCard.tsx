@@ -16,9 +16,9 @@ export default function ProfileCard({ name, image, description, Rating }: any) {
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="h2">
           {image}
-          {name}Lizard
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}Lizards are a widespread group of squamate reptiles, with
