@@ -16,6 +16,7 @@ const AboutUs: React.FC = () => {
         journey as we celebrate the joy of cooking and the beauty of sharing
         food with those we love.
       </p>
+      <hr />
       <div className="ProfileCardContainer">
         <ProfileCard
           name={"Parnian Zarbafian"}
@@ -40,6 +41,8 @@ const AboutUs: React.FC = () => {
           }
         />
       </div>
+      <hr></hr>
+      <h1> Contact Us</h1>
       <ContactUsForm />
     </div>
   );

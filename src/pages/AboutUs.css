@@ -26,6 +26,9 @@ p {
 }
 
 .ProfileCardContainer {
+  align-items: center;
+
+  padding: 2% 5%;
   display: flex;
   flex-direction: row;
   gap: 2rem;

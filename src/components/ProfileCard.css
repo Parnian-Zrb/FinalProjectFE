@@ -1,0 +1,26 @@
+/* ContactUsFrom.css */
+.card-actions {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+.card-actions button {
+  display: flex;
+  justify-content: center;
+  background-color: hsl(175, 60%, 66%); /* Bootstrap primary color */
+  cursor: pointer;
+
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card-actions button:hover {
+  background-color: #020076; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.card-actions button:active {
+  transform: scale(0.95); /* Slightly reduces the button size on click */
+}
