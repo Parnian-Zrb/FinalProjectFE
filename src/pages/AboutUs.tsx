@@ -1,8 +1,6 @@
 import React from "react";
 import ContactUsForm from "../components/ContactUsForm";
-
-import ProfileCard from "../components/RecipeCard";
-
+import ProfileCard from "../components/ProfileCard.tsx";
 const AboutUs: React.FC = () => {
   return (
     <div>
@@ -17,7 +15,33 @@ const AboutUs: React.FC = () => {
         journey as we celebrate the joy of cooking and the beauty of sharing
         food with those we love.
       </p>
-
+      <div className="ProfileCard">
+        <ProfileCard
+          name={"Parnian Zarbafian"}
+          description={"Web Developer"}
+          image={
+            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
+          }
+        />
+      </div>
+      <div className="ProfileCard">
+        <ProfileCard
+          name={"Parnian Zarbafian"}
+          description={"Web Developer"}
+          image={
+            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
+          }
+        />
+      </div>
+      <div className="ProfileCard">
+        <ProfileCard
+          name={"Parnian Zarbafian"}
+          description={"Web Developer"}
+          image={
+            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
+          }
+        />
+      </div>
       <ContactUsForm />
     </div>
   );
