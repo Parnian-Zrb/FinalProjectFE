@@ -1,15 +1,16 @@
 export interface RecipeType {
-  id: string;
-  title: string;
-  description: string;
-  ingredients: sting[];
-  preparation_steps: sting[];
-  time_required: string;
+  _id: string;
+  name: string;
+  introduction: string;
+  preparationTime: number;
+  servings: number;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
   difficulty: string[];
-  tags: string[];
-  category: string[];
-  image_url: string;
+  tags: string;
   createdAt: Date;
-  ServingSize: sting[];
-  nutrition: sting[];
+  userId: string;
+  mealPlan: string;
+  category: string;
 }

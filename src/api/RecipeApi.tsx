@@ -1,10 +1,10 @@
 import axios from "axios";
-
-// the same as api RecipeApi.tsx
 import { RecipeType } from "../types/Recipe";
-const API_URL = "http://localhost:3000/api/recipe";
+// the same as api RecipeApi.tsx
+
+const API_URL = import.meta.env.REACT_APP_API_URL;
 // Fetch all Recipe
-export const getAllRecipes = () => axios.get(API_URL);
+export const getAllRecipes = () => axios.get(API_URL + "/recipe");
 
 // Create a newRecipe
 export const createRecipe = (RecipeData: RecipeType) =>
