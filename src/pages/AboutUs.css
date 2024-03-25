@@ -24,10 +24,9 @@ p {
   flex-wrap: wrap;
   padding: 2rem;
 }
-.ProfileCard {
+
+.ProfileCardContainer {
   display: flex;
-  justify-content: space-between;
-  text-decoration: dashed;
   flex-direction: row;
   gap: 2rem;
 }

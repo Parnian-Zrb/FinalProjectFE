@@ -30,16 +30,18 @@ export default function ProfileCard({ image, name, description }: ProductType) {
           {description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <a href="" target="_blank" rel="noopener noreferrer">
-          <Button size="small">GitHub</Button>
-        </a>
-      </CardActions>
-      <CardActions>
-        <a href="" target="_blank" rel="noopener noreferrer">
-          <Button size="small">LinkedIn</Button>
-        </a>
-      </CardActions>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <CardActions>
+          <a href="" target="_blank" rel="noopener noreferrer">
+            <Button size="small">GitHub</Button>
+          </a>
+        </CardActions>
+        <CardActions>
+          <a href="" target="_blank" rel="noopener noreferrer">
+            <Button size="small">LinkedIn</Button>
+          </a>
+        </CardActions>
+      </div>
     </Card>
   );
 }
