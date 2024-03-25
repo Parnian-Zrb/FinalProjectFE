@@ -6,3 +6,22 @@
   flex-wrap: wrap;
   padding: 2rem;
 }
+
+.headline {
+  text-align: center;
+  color: #e8751a;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.welcomeMessage {
+  text-align: center;
+  color: #333333;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin: 0 auto;
+}
+
+.content-margin {
+  margin: 105px;
+ }
