@@ -18,6 +18,10 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
+  if (!recipe) {
+    return <div>Loading...</div>; // Or any other placeholder you prefer
+  }
+
   const isFavorite = useFavoriteStore((state) =>
     state.favorites.some((fav) => fav._id === recipe._id)
   );

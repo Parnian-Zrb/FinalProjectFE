@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { createRecipe } from "../api/RecipeApi";
+import { createRecipe } from "../api/recipeApi";
 
 const RecipeSchema = Yup.object().shape({
   title: Yup.string().required("Recipe name is required"),

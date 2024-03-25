@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RecipeCard from "../components/RecipeCard";
-import { getAllRecipes } from "../api/RecipeApi";
+import { getAllRecipes } from "../api/recipeApi";
 import { RecipeType } from "../types/Recipe";
 import "./Home.css";
 
@@ -11,13 +11,12 @@ const Home = () => {
     const fetchRecipes = async () => {
       try {
         const response = await getAllRecipes();
-        setRecipes(response.data);
+        setRecipes(response.data.data);
+        // console.log(response.data.data[0]);
       } catch (error) {
         console.error("Failed to fetch recipes:", error);
       }
     };
-    const recipeUrl = import.meta.env.REACT_API_URL;
-    console.log(recipeUrl);
     fetchRecipes();
   }, []);
   return (
@@ -38,12 +37,7 @@ const Home = () => {
       </p>
       <div className="recipeContainer">
         {recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe._id}
-            name={recipe.name}
-            image={recipe.image}
-            introduction={recipe.introduction}
-          />
+          <RecipeCard recipe={recipe} />
         ))}
       </div>
     </>
