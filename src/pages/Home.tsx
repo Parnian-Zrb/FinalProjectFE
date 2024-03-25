@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import RecipeCard from "../components/RecipeCard";
+import { getAllRecipes } from "../api/RecipeApi";
+import { RecipeType } from "../types/Recipe";
 import "./Home.css";
 
 const Home = () => {
+  const [recipes, setRecipes] = useState<RecipeType[]>([]);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await getAllRecipes();
+        setRecipes(response.data);
+      } catch (error) {
+        console.error("Failed to fetch recipes:", error);
+      }
+    };
+    const recipeUrl = import.meta.env.REACT_API_URL;
+    console.log(recipeUrl);
+    fetchRecipes();
+  }, []);
   return (
     <>
       <h1>Welcome to our website!</h1>
@@ -19,7 +37,14 @@ const Home = () => {
         that suits your taste. We hope you enjoy your stay with us!
       </p>
       <div className="recipeContainer">
-        <RecipeCard name={""} image={""} description={""} rating={""} />
+        {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe._id}
+            name={recipe.name}
+            image={recipe.image}
+            introduction={recipe.introduction}
+          />
+        ))}
       </div>
     </>
   );
