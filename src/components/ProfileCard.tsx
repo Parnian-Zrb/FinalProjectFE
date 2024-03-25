@@ -4,10 +4,22 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ProductType } from "../types/ProfileType";
 import "./ProfileCard.css";
 
-export default function ProfileCard({ image, name, description }: ProductType) {
+interface ProfileCardProps {
+  name: string;
+  description: string;
+  image: string;
+  githubLink: string;
+  LinkedInLink: string;
+}
+export default function ProfileCard({
+  image,
+  name,
+  description,
+  githubLink,
+  LinkedInLink,
+}: ProfileCardProps) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -34,14 +46,21 @@ export default function ProfileCard({ image, name, description }: ProductType) {
       <div className="card-actions">
         <CardActions>
           <a href="" target="_blank" rel="noopener noreferrer">
-            <Button size="large" background-color="green">
-              GitHub
+            <Button size="large">
+              <a href={githubLink} target="_blank">
+                GitHub
+              </a>
             </Button>
           </a>
         </CardActions>
         <CardActions>
           <a href="" target="_blank" rel="noopener noreferrer">
-            <Button size="large">LinkedIn</Button>
+            <Button size="large">
+              <a href={LinkedInLink} target="_blank">
+                {" "}
+                LinkedIn
+              </a>
+            </Button>
           </a>
         </CardActions>
       </div>

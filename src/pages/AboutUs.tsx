@@ -1,6 +1,8 @@
 import React from "react";
 import ContactUsForm from "../components/ContactUsForm";
 import ProfileCard from "../components/ProfileCard.tsx";
+import ParnianImage from "../assets/Parnian.jpg";
+import FarahnazImage from "../assets/Farahnaz.jpg";
 import "./AboutUs.css";
 const AboutUs: React.FC = () => {
   return (
@@ -21,17 +23,17 @@ const AboutUs: React.FC = () => {
         <ProfileCard
           name={"Parnian Zarbafian"}
           description={"Web Developer"}
-          image={
-            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
-          }
+          image={ParnianImage}
+          githubLink={"https://github.com/Parnian-Zrb"}
+          LinkedInLink={"https://www.linkedin.com/in/parnian-zarbafian/"}
         />
 
         <ProfileCard
           name={"Farahnaz Farahbaskhsh"}
           description={"Web Developer"}
-          image={
-            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
-          }
+          image={FarahnazImage}
+          githubLink={"https://github.com/FarahnazMehrafza"}
+          LinkedInLink={"http://www.linkedin.com/in/farahnazmehrafza"}
         />
         <ProfileCard
           name={"Shelly"}
@@ -39,6 +41,8 @@ const AboutUs: React.FC = () => {
           image={
             "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
           }
+          githubLink={""}
+          LinkedInLink={""}
         />
       </div>
       <hr></hr>
