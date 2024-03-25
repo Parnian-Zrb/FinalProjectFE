@@ -16,7 +16,13 @@ const AboutUs: React.FC = () => {
         food with those we love.
       </p>
       <div className="ProfileCard">
-        <ProfileCard />
+        <ProfileCard
+          name={"Parnian Zarbafian"}
+          description={"Web Developer"}
+          image={
+            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
+          }
+        />
       </div>
       <ContactUsForm />
     </div>
