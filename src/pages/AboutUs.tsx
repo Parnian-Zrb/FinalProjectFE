@@ -1,8 +1,6 @@
 import React from "react";
 import ContactUsForm from "../components/ContactUsForm";
-
-import ProfileCard from "../components/RecipeCard";
-
+import ProfileCard from "../components/ProfileCard.tsx";
 const AboutUs: React.FC = () => {
   return (
     <div>
@@ -17,7 +15,9 @@ const AboutUs: React.FC = () => {
         journey as we celebrate the joy of cooking and the beauty of sharing
         food with those we love.
       </p>
-
+      <div className="ProfileCard">
+        <ProfileCard />
+      </div>
       <ContactUsForm />
     </div>
   );
