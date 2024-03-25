@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { ProductType } from "../types/ProfileType";
+import "./ProfileCard.css";
 
 export default function ProfileCard({ image, name, description }: ProductType) {
   return (
@@ -30,15 +31,17 @@ export default function ProfileCard({ image, name, description }: ProductType) {
           {description}
         </Typography>
       </CardContent>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="card-actions">
         <CardActions>
           <a href="" target="_blank" rel="noopener noreferrer">
-            <Button size="small">GitHub</Button>
+            <Button size="large" background-color="green">
+              GitHub
+            </Button>
           </a>
         </CardActions>
         <CardActions>
           <a href="" target="_blank" rel="noopener noreferrer">
-            <Button size="small">LinkedIn</Button>
+            <Button size="large">LinkedIn</Button>
           </a>
         </CardActions>
       </div>
