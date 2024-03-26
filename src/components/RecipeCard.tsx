@@ -31,6 +31,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         width: "380px",
         backgroundColor: "white",
         borderRadius: "20px",
+        boxShadow: "2px 2px 5px 0px rgba(0, 0, 0, 0.2)",
       }}
     >
       <Link to={`/recipe/${recipe._id}`} style={{ textDecoration: "none" }}>
