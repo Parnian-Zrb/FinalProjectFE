@@ -5,6 +5,7 @@ import { RecipeType } from "../types/Recipe";
 import "./Home.css";
 
 import logoIcon from "../assets/LogoIcon.png";
+// import Carousel from "../components/Carousel";
 
 const Home = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
@@ -28,6 +29,7 @@ const Home = () => {
           <input type="text" placeholder="Search.." />
           <button>Submit</button>
         </div>
+        {/* <Carousel slides={[]} /> */}
         <h1 className="headline">Find Your Inspiration Here!</h1>
         <p className="welcomeMessage">
           Welcome to our food sharing recipe website! Explore recipes, cooking

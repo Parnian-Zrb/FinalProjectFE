@@ -20,7 +20,7 @@ export interface RecipeType {
   mealPlan: string;
   category: string;
   description: string;
-  tags: string[];
+  tags: string;
 }
 
 const RecipeSchema = Yup.object().shape({
@@ -64,15 +64,12 @@ const RecipeUpload: React.FC = () => {
       mealPlan: "",
       category: "",
       description: "",
-      tags: [],
+      tags: "",
     },
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await createRecipe({
-          ...values,
-          tags: values.tags.join(","), // Convert the array to a single string
-        });
+        const response = await createRecipe(values);
         console.log("Recipe added successfully", response.data);
         resetForm({});
       } catch (error) {
