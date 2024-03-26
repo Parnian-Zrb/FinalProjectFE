@@ -27,9 +27,18 @@
 
 .content-margin {
   margin: 105px;
+  margin-top: 20px;
  }
 
  .subtitle {
   color: #333333;
 
+ }
+
+ .logo-icon {
+  display: block;
+  margin: 0 auto; 
+  width: 150px;
+  height: 150px;
+  object-fit: contain; 
  }
