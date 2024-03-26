@@ -2,42 +2,72 @@ import RecipeCard from "../components/RecipeCard";
 import { useFavoriteStore } from "../store/useFavouriteStore";
 import { useState, useEffect } from "react";
 import { RecipeType } from "../types/Recipe";
+import { getUserById } from "../api/userApi";
+import "./UserProfile.css";
 
 const UserProfile = () => {
   const { favorites } = useFavoriteStore();
-  const [userRecipes, addUserRecipes] = useState<RecipeType[]>([]);
+  const [userRecipes, setUserRecipes] = useState<RecipeType[]>([]);
+  const [user, setUser] = useState({
+    imageURL: "",
+    name: "",
+    accountName: "",
+  });
+
+  const defaultMessage = (sectionName: string, items: any[]) => {
+    if (items.length === 0) {
+      return (
+        <div className="default-message">
+          <p>You don't have any {sectionName} yet.</p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   useEffect(() => {
-    const fetchUserRecipes = async () => {
+    const fetchUser = async () => {
       try {
-        const response = await fetch("/user/:id/recipes");
-        const data = await response.json();
-        addUserRecipes(data);
+        const response = await getUserById("65fe28de7dde309c823adb5e");
+        setUser(response.data.data);
+        setUserRecipes(response.data.data.uploadedRecipes);
       } catch (error) {
-        console.error("Failed to fetch user recipes:", error);
+        console.error("Failed to fetch user data:", error);
       }
     };
-
-    fetchUserRecipes();
+    fetchUser();
   }, []);
 
   return (
-    <div>
-      <h2>UserProfile</h2>
-      <section>
-        <h3>Meal Plan</h3>
+    <div style={{ margin: "0 105px" }}>
+      <div className="user-profile-header">
+        <img src={user.imageURL} alt="User Profile" className="profile-image" />
+        <div className="user-info">
+          <h2>{user.name}</h2>
+          <p>@{user.accountName}</p>
+        </div>
+      </div>
+      <section className="meal-plan-section">
+        <h2>Meal Plan</h2>
+        {defaultMessage("Meal Plan", userRecipes)}
       </section>
       <section>
-        <h3>Favourited Recipe</h3>
-        {favorites.map((recipe) => (
-          <RecipeCard key={recipe._id} recipe={recipe} />
-        ))}
+        <h2>Favorite Recipes</h2>
+        {defaultMessage("Favourited Recipe", favorites)}
+        <div className="recipeContainer">
+          {favorites.map((recipe) => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
+          ))}
+        </div>
       </section>
       <section>
-        <h3>Publish Recipe</h3>
-        {userRecipes.map((recipe) => (
-          <RecipeCard key={recipe._id} recipe={recipe} />
-        ))}
+        <h2>Published Recipes</h2>
+        {defaultMessage("Publish Recipe", userRecipes)}
+        <div className="recipeContainer">
+          {userRecipes.map((recipe) => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
+          ))}
+        </div>
       </section>
     </div>
   );
