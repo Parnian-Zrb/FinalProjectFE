@@ -23,10 +23,10 @@ export default function ProfileCard({
   LinkedInLink,
 }: ProfileCardProps) {
   return (
-    <Card className="profile-card" sx={{ maxWidth: 345 }}>
+    <Card className="profile-card" sx={{ maxWidth: 350 }}>
       <CardMedia
         sx={{
-          height: 280,
+          height: 300,
           width: 280,
           display: "flex",
           padding: "0rem",
@@ -38,14 +38,33 @@ export default function ProfileCard({
         title={name}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" align="center">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          align="center"
+          fontSize={20}
+          fontWeight="bold"
+        >
           {name}
         </Typography>
-        <Typography gutterBottom variant="h5" component="div" align="center">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          align="center"
+          fontSize={15}
+        >
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {description}
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          fontSize={13}
+          align="center"
+          fontStyle={"italic"}
+        >
+          <br /> {description}
         </Typography>
       </CardContent>
       <div className="card-actions">

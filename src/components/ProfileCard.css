@@ -10,7 +10,6 @@
   justify-content: center;
   background-color: hsl(175, 60%, 66%); /* Bootstrap primary color */
   cursor: pointer;
-
   font-weight: bold;
   font-size: 16px;
 }
