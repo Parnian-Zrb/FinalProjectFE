@@ -14,19 +14,20 @@ const RecipeSchema = Yup.object().shape({
 const RecipeUpload = () => {
   const formik = useFormik({
     initialValues: {
-      id: "",
-      title: "",
+      _id: "",
+      name: "",
       description: "",
+      preparationTime: 0,
+      servings: 0,
+      image: "",
       ingredients: [],
-      preparation_steps: [],
-      time_required: "",
+      instructions: [],
       difficulty: [],
-      tags: [],
-      category: [],
-      image_url: "",
+      tags: "",
       createdAt: new Date(),
-      ServingSize: [],
-      nutrition: [],
+      userId: "",
+      mealPlan: "",
+      category: "",
     },
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -42,17 +43,17 @@ const RecipeUpload = () => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="title">Title</label>
+      <label htmlFor="name">Name</label>
       <input
-        id="title"
-        name="title"
+        id="name"
+        name="name"
         type="text"
         onChange={formik.handleChange}
-        value={formik.values.title}
+        value={formik.values.name}
         onBlur={formik.handleBlur}
       />
-      {formik.touched.title && formik.errors.title && (
-        <div>{formik.errors.title}</div>
+      {formik.touched.name && formik.errors.name && (
+        <div>{formik.errors.name}</div>
       )}
 
       <label htmlFor="category">Category</label>
@@ -86,11 +87,11 @@ const RecipeUpload = () => {
         name="image"
         type="text"
         onChange={formik.handleChange}
-        value={formik.values.image_url}
+        value={formik.values.image}
         onBlur={formik.handleBlur}
       />
-      {formik.touched.image_url && formik.errors.image_url && (
-        <div>{formik.errors.image_url}</div>
+      {formik.touched.image && formik.errors.image && (
+        <div>{formik.errors.image}</div>
       )}
 
       <button type="submit">Add Recipe</button>
