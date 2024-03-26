@@ -6,8 +6,6 @@ import "./Home.css";
 
 import logoIcon from "../assets/LogoIcon.png";
 
-
-
 const Home = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
 
@@ -44,7 +42,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-{/* <RecipeDetails 
+      {/* <RecipeDetails 
     _id={"unique_recipe_id"} 
     name={"Delicious Spaghetti Carbonara"} 
     introduction={"Indulge in this creamy and flavorful pasta dish that's sure to delight your taste buds."} 
