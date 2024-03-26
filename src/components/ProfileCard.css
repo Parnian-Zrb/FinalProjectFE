@@ -22,3 +22,7 @@
 .card-actions button:active {
   transform: scale(0.95); /* Slightly reduces the button size on click */
 }
+.card-description {
+  margin: 0 20px;
+  min-height: 75px;
+}
