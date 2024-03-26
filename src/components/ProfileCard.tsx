@@ -63,6 +63,7 @@ export default function ProfileCard({
           fontSize={13}
           align="center"
           fontStyle={"italic"}
+          className="card-description"
         >
           <br /> {description}
         </Typography>

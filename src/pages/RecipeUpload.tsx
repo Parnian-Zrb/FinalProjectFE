@@ -2,7 +2,7 @@ import React from "react";
 import { FormikErrors, useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/recipeApi";
-import './RecipeUpload.css';
+import "./RecipeUpload.css";
 
 interface Ingredient {
   name: string;
@@ -24,7 +24,8 @@ export interface RecipeType {
   userId?: string;
   mealPlan?: string;
   category: string;
-  tags?: string;
+  description: string;
+  tags: string;
 }
 
 const RecipeSchema = Yup.object().shape({
@@ -78,6 +79,8 @@ const RecipeUpload: React.FC = () => {
       difficulty: [],
       createdAt: new Date(),
       category: "",
+      description: "",
+      tags: "",
     },
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {

@@ -24,6 +24,11 @@ const Home = () => {
     <>
       <div className="content-margin">
         <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
+        <div className="searchBar">
+          <input type="text" placeholder="Search.." />
+          <button>Submit</button>
+        </div>
+
         <h1 className="headline">Find Your Inspiration Here!</h1>
         <p className="welcomeMessage">
           Welcome to our food sharing recipe website! Explore recipes, cooking
