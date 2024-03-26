@@ -87,7 +87,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         >
           Preparation Time: {recipe.preparationTime}
         </Typography>
-        <CardActions>
+        <CardActions sx={{ padding: "0px", paddingTop: "10px" }}>
           <Link to={`/recipe/${recipe._id}`}>
             <Button
               sx={{
