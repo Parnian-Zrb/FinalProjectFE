@@ -4,39 +4,6 @@ import { useEffect, useState } from "react";
 import { getRecipeById } from "../api/recipeApi";
 import { useParams } from "react-router-dom";
 
-// interface RecipeDetailsProps {
-//   _id: string;
-//   name: string;
-//   introduction: string;
-//   preparationTime: number;
-//   servings: number;
-//   image: string;
-//   ingredients: string[];
-//   instructions: string[];
-//   difficulty: string[];
-//   createdAt: Date;
-//   userId: string;
-//   mealPlan: string;
-//   category: string;
-// }
-
-// const RecipeDetails = ({
-// /*   _id, */
-//   name,
-//   introduction,
-//   preparationTime,
-//   servings,
-//   image,
-//   ingredients,
-//   instructions,
-//   difficulty,
-//  /*  createdAt,
-//   userId, */
-//   mealPlan,
-//   category,
-
-// } : RecipeDetailsProps) => {
-
 const RecipeDetail = () => {
   const { id = "" } = useParams();
   const [recipe, setRecipe] = useState<RecipeType>();
@@ -46,8 +13,8 @@ const RecipeDetail = () => {
       try {
         if (id) {
           const response = await getRecipeById(id);
-          // console.log(response);
-          setRecipe(response.data);
+          console.log(response.data.data);
+          setRecipe(response.data.data);
         } else {
           console.error("Product ID is undefined");
         }
@@ -67,7 +34,7 @@ const RecipeDetail = () => {
   return (
     <div className="recipe-details">
       <header>
-        <h1>Food Name:{recipe?.name}</h1>
+        <h1>{recipe?.name}</h1>
         <p> Navigation Links, Save/Favorite Button, Share Buttons </p>
       </header>
 
@@ -76,34 +43,31 @@ const RecipeDetail = () => {
           <img src={recipe?.image} alt="Recipe Image" />
         </div>
 
-        <table className="table">
-          <td className="td">
-            <div className="recipe-info">
-              <tr>
-                <h2>Ingredients:{recipe?.ingredients}</h2>
-              </tr>
-              <tr>
-                <h2>preparation Time: {recipe?.preparationTime}</h2>
-              </tr>
-              <tr>
-                <h2>Introduction: {recipe?.description}</h2>
-              </tr>
-            </div>
-          </td>
-          <td className="td">
-            <div>
-              <tr>
-                <h2>Difficulty:{recipe?.difficulty}</h2>
-              </tr>
-              <tr>
-                <h2>Category: {recipe?.category} </h2>{" "}
-              </tr>
-              <tr>
-                <h2>Servings for:{recipe?.servings} </h2>
-              </tr>
-            </div>
-          </td>
-        </table>
+        <div className="recipe-info-container">
+          <div className="recipe-info">
+            <h2>Ingredients:</h2>
+            {recipe?.ingredients.map((ingredient, index) => (
+              <div key={index}>
+                {ingredient.name} - {ingredient.quantity}
+              </div>
+            ))}
+          </div>
+          <div className="recipe-info">
+            <h2>Preparation Time: {recipe?.preparationTime}</h2>
+          </div>
+          <div className="recipe-info">
+            <h2>Introduction: {recipe?.description}</h2>
+          </div>
+          <div className="recipe-info">
+            <h2>Difficulty: {recipe?.difficulty}</h2>
+          </div>
+          <div className="recipe-info">
+            <h2>Category: {recipe?.category}</h2>
+          </div>
+          <div className="recipe-info">
+            <h2>Servings for: {recipe?.servings}</h2>
+          </div>
+        </div>
       </main>
 
       <section className="Instructions">
@@ -118,41 +82,31 @@ const RecipeDetail = () => {
         </section>
       </div>
 
-      <table>
-        <td className="td">
-          <section>
-            <div className="comment_list">
-              <h2> Comment list </h2>
-
-              <li> First Comment </li>
-              <li> Second Comment </li>
-              <li> Third Comment </li>
-              <li> Forth Comment </li>
-            </div>
-          </section>
-        </td>
-
-        <td className="td">
-          <section>
-            <div className="comments">
-              <h2>Comments:</h2>
-              <form onSubmit={handleSubmitComment}>
-                <h2>Name </h2>
-                <input type="name" placeholder="Name" />
-                <h2>Email</h2>
-
-                <input type="Email" placeholder="Email" />
-                <h2>Comments</h2>
-
-                <input type="text" placeholder="Add a comment" />
-                <button className="comments button" type="submit">
-                  Submit
-                </button>
-              </form>
-            </div>
-          </section>
-        </td>
-      </table>
+      <div className="comments-container">
+        <div className="comment_list">
+          <h2>Comment list</h2>
+          <ul>
+            <li>First Comment</li>
+            <li>Second Comment</li>
+            <li>Third Comment</li>
+            <li>Forth Comment</li>
+          </ul>
+        </div>
+        <div className="comments">
+          <h2>Comments:</h2>
+          <form onSubmit={handleSubmitComment}>
+            <h2>Name</h2>
+            <input type="name" placeholder="Name" />
+            <h2>Email</h2>
+            <input type="Email" placeholder="Email" />
+            <h2>Comments</h2>
+            <input type="text" placeholder="Add a comment" />
+            <button className="comments button" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
 
       <div className="scroll-menu">
         <h2>Related Recipe-same category </h2>
