@@ -6,7 +6,7 @@ import { getUserById } from "../api/userApi";
 import "./UserProfile.css";
 
 const UserProfile = () => {
-  const { favorites } = useFavoriteStore();
+  const { favorites, setToFavorites } = useFavoriteStore();
   const [userRecipes, setUserRecipes] = useState<RecipeType[]>([]);
   const [user, setUser] = useState({
     imageURL: "",
@@ -29,6 +29,8 @@ const UserProfile = () => {
     const fetchUser = async () => {
       try {
         const response = await getUserById("65fe28de7dde309c823adb5e");
+        console.log(response.data.data.favoriteRecipes);
+        setToFavorites(response.data.data.favoriteRecipes);
         setUser(response.data.data);
         setUserRecipes(response.data.data.uploadedRecipes);
       } catch (error) {
