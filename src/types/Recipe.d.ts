@@ -1,7 +1,7 @@
 export interface RecipeType {
   _id: string;
   name: string;
-  introduction: string;
+  description: string;
   preparationTime: number;
   servings: number;
   image: string;
