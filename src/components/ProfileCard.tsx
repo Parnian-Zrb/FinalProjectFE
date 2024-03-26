@@ -8,6 +8,7 @@ import "./ProfileCard.css";
 
 interface ProfileCardProps {
   name: string;
+  title: string;
   description: string;
   image: string;
   githubLink: string;
@@ -16,12 +17,13 @@ interface ProfileCardProps {
 export default function ProfileCard({
   image,
   name,
+  title,
   description,
   githubLink,
   LinkedInLink,
 }: ProfileCardProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className="profile-card" sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{
           height: 280,
@@ -38,6 +40,9 @@ export default function ProfileCard({
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" align="center">
           {name}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div" align="center">
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}

@@ -3,6 +3,7 @@ import ContactUsForm from "../components/ContactUsForm";
 import ProfileCard from "../components/ProfileCard.tsx";
 import ParnianImage from "../assets/Parnian.jpg";
 import FarahnazImage from "../assets/Farahnaz.jpg";
+import ShellyImage from "../assets/Shelly.jpg";
 import "./AboutUs.css";
 const AboutUs: React.FC = () => {
   return (
@@ -22,27 +23,30 @@ const AboutUs: React.FC = () => {
       <div className="ProfileCardContainer">
         <ProfileCard
           name={"Parnian Zarbafian"}
-          description={"Web Developer"}
+          title={"Web developer"}
+          description={"I'm a web developer who's all about art and design."}
           image={ParnianImage}
           githubLink={"https://github.com/Parnian-Zrb"}
           LinkedInLink={"https://www.linkedin.com/in/parnian-zarbafian/"}
         />
 
         <ProfileCard
-          name={"Farahnaz Farahbaskhsh"}
-          description={"Web Developer"}
+          name={"Farahnaz Mehrafza"}
+          description={
+            "I'm all about tech,Constantly on the lookout for new stuff to learn "
+          }
           image={FarahnazImage}
           githubLink={"https://github.com/FarahnazMehrafza"}
           LinkedInLink={"http://www.linkedin.com/in/farahnazmehrafza"}
+          title={"Full-stack developer"}
         />
         <ProfileCard
-          name={"Shelly"}
-          description={"Web Developer"}
-          image={
-            "https://media.istockphoto.com/id/1346223165/photo/encryption-your-data-binary-code-and-digital-lock-hacker-attack-and-data-breach-big-data-with.jpg?s=1024x1024&w=is&k=20&c=JJ-fCEmaInOhepWmnbRUe3Gonshg4lVs5foz2Zu5wxU="
-          }
-          githubLink={""}
-          LinkedInLink={""}
+          name={"Shelly Wu"}
+          title={"UX Developer"}
+          description={"I love learning new thing 🌱"}
+          image={ShellyImage}
+          LinkedInLink={"http://www.linkedin.com/in/shellythedesigner"}
+          githubLink={"https://github.com/shellythedesigner"}
         />
       </div>
       <hr></hr>
