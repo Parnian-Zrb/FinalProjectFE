@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/recipeApi";
-import './RecipeUpload.css';
+import "./RecipeUpload.css";
 
 // Define the RecipeType interface
 export interface RecipeType {
@@ -19,6 +19,8 @@ export interface RecipeType {
   userId: string;
   mealPlan: string;
   category: string;
+  description: string;
+  tags: string[];
 }
 
 const RecipeSchema = Yup.object().shape({
@@ -33,16 +35,15 @@ const RecipeSchema = Yup.object().shape({
 
 const Header = () => {
   return (
-    
     <header className="header">
-
       <h1>Recipe Upload</h1>
 
-      <p> Welcome to the Recipe Upload page. 
-        Please fill out the form below to add a new recipe.</p>
-
+      <p>
+        {" "}
+        Welcome to the Recipe Upload page. Please fill out the form below to add
+        a new recipe.
+      </p>
     </header>
-   
   );
 };
 
@@ -62,11 +63,16 @@ const RecipeUpload: React.FC = () => {
       userId: "",
       mealPlan: "",
       category: "",
+      description: "",
+      tags: [],
     },
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await createRecipe(values);
+        const response = await createRecipe({
+          ...values,
+          tags: values.tags.join(","), // Convert the array to a single string
+        });
         console.log("Recipe added successfully", response.data);
         resetForm({});
       } catch (error) {
@@ -133,7 +139,7 @@ const RecipeUpload: React.FC = () => {
           )}
         </div>
 
-        <div className="form-group" >
+        <div className="form-group">
           <label htmlFor="image">Image URL</label>
           <input
             id="image"
