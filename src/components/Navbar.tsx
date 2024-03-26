@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 import logo from "../assets/Logo.png";
-import { useState } from "react";
+// import { useState } from "react";
 
 // import { useState } from "react";
 
 const Navbar = () => {
   // const [menuOpen, setMenuOpen] = useState(false);
-  const [userId, setUserId] = useState("12");
+  // const [userId, setUserId] = useState("12");
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link to="/recipe-upload" className="nav-link">
           Upload Recipe
         </Link>
-        <Link to={`/user/${userId}`} className="nav-link">
+        <Link to={`/user/${12}`} className="nav-link">
           Profile
         </Link>
       </div>
