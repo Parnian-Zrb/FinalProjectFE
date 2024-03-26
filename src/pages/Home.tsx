@@ -3,6 +3,7 @@ import RecipeCard from "../components/RecipeCard";
 import { getAllRecipes } from "../api/recipeApi";
 import { RecipeType } from "../types/Recipe";
 import "./Home.css";
+import logoIcon from "../assets/LogoIcon.png";
 
 const Home = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
@@ -21,6 +22,7 @@ const Home = () => {
   return (
     <>
       <div className="content-margin">
+        <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
         <h1 className="headline">Find Your Inspiration Here!</h1>
         <p className="welcomeMessage">
           Welcome to our food sharing recipe website! Explore recipes, cooking

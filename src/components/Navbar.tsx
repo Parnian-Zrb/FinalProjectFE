@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../assets/Logo.png";
 // import { useState } from "react";
 
 const Navbar = () => {
@@ -7,8 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        {/* <img src="/logo.png" alt="Logo" /> */}
-        Home
+        <img src={logo} alt="Logo" />
       </Link>
       <div className="nav-links">
         <Link to="/" className="nav-link">
