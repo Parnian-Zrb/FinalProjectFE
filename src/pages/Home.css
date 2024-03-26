@@ -1,10 +1,11 @@
 .recipeContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
-  gap: 2rem;
+  gap: 3em;
   flex-wrap: wrap;
-  padding: 2rem;
+  align-items: stretch;
+  /* padding: 2rem; */
 }
 
 .headline {
@@ -20,8 +21,15 @@
   font-family: "Inter", sans-serif;
   font-weight: 400;
   margin: 0 auto;
+  max-width: 800px;
+  font-size: 1rem;
 }
 
 .content-margin {
   margin: 105px;
+ }
+
+ .subtitle {
+  color: #333333;
+
  }

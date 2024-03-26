@@ -1,15 +1,36 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav>
-      <Link to="/" className="title">
+    <nav className="navbar">
+      <Link to="/" className="logo">
+        {/* <img src="/logo.png" alt="Logo" /> */}
         Home
       </Link>
-      <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <Link to="/AboutUs" className="nav-link">
+          About Us
+        </Link>
+        <Link to="/recipeUpload" className="nav-link">
+          Upload Recipe
+        </Link>
+        <Link to="/UserProfile" className="nav-link">
+          Profile
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+// {
+/* <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
         <span></span>
@@ -26,9 +47,5 @@ const Navbar = () => {
         <li>
           <Link to="/AboutUs">About Us</Link>
         </li>
-      </ul>
-    </nav>
-  );
-};
-
-export default Navbar;
+      </ul> */
+// }
