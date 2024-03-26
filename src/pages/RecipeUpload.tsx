@@ -37,7 +37,6 @@ const Header = () => {
   return (
     <header className="header">
       <h1>Recipe Upload</h1>
-
       <p>
         {" "}
         Welcome to the Recipe Upload page. Please fill out the form below to add
@@ -80,10 +79,7 @@ const RecipeUpload: React.FC = () => {
 
   return (
     <div className="container">
-      {/* Header */}
       <Header />
-
-      {/* Recipe Upload Form */}
       <form onSubmit={formik.handleSubmit} className="form">
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -100,39 +96,47 @@ const RecipeUpload: React.FC = () => {
           )}
         </div>
 
-        {/* Dropdown list for category */}
         <div className="form-group">
-          <label htmlFor="category">Category</label>
-          <select
-            id="category"
-            name="category"
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
             onChange={formik.handleChange}
+            value={formik.values.description}
             onBlur={formik.handleBlur}
-            value={formik.values.category}
-          >
-            <option value="">Select Category</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Gluten-Free">Gluten-Free</option>
-            <option value="High-Protein">High-Protein</option>
-            <option value="Quick-and-Easy">Quick-and-Easy</option>
-            <option value="Desserts">Desserts</option>
-          </select>
-          {formik.touched.category && formik.errors.category && (
-            <div className="error">{formik.errors.category}</div>
+          />
+          {formik.touched.description && formik.errors.description && (
+            <div className="error">{formik.errors.description}</div>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="introduction">Introduction</label>
-          <textarea
-            id="introduction"
-            name="introduction"
+          <label htmlFor="preparationTime">Preparation Time (minutes)</label>
+          <input
+            id="preparationTime"
+            name="preparationTime"
+            type="number"
             onChange={formik.handleChange}
-            value={formik.values.introduction}
+            value={formik.values.preparationTime}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.introduction && formik.errors.introduction && (
-            <div className="error">{formik.errors.introduction}</div>
+          {formik.touched.preparationTime && formik.errors.preparationTime && (
+            <div className="error">{formik.errors.preparationTime}</div>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="servings">Servings</label>
+          <input
+            id="servings"
+            name="servings"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.servings}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.servings && formik.errors.servings && (
+            <div className="error">{formik.errors.servings}</div>
           )}
         </div>
 
@@ -151,7 +155,35 @@ const RecipeUpload: React.FC = () => {
           )}
         </div>
 
-        {/* Select input for difficulty */}
+        <div className="form-group">
+          <label htmlFor="ingredients">Ingredients</label>
+          <input
+            id="ingredients"
+            name="ingredients"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.ingredients}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.ingredients && formik.errors.ingredients && (
+            <div className="error">{formik.errors.ingredients}</div>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="instructions">Instructions</label>
+          <textarea
+            id="instructions"
+            name="instructions"
+            onChange={formik.handleChange}
+            value={formik.values.instructions}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.instructions && formik.errors.instructions && (
+            <div className="error">{formik.errors.instructions}</div>
+          )}
+        </div>
+
         <div className="form-group">
           <label htmlFor="difficulty">Difficulty</label>
           <select
@@ -162,12 +194,34 @@ const RecipeUpload: React.FC = () => {
             value={formik.values.difficulty}
           >
             <option value="">Select Difficulty</option>
-            <option value="Easy">Easy</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Difficult">Difficult</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="difficult">Difficult</option>
           </select>
           {formik.touched.difficulty && formik.errors.difficulty && (
             <div className="error">{formik.errors.difficulty}</div>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            name="category"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.category}
+          >
+            <option value="">Select Category</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+            <option value="High-Protein">High-Protein</option>
+            <option
+            value="Quick-and-Easy">Quick-and-Easy</option>
+            <option value="Desserts">Desserts</option>
+          </select>
+          {formik.touched.category && formik.errors.category && (
+            <div className="error">{formik.errors.category}</div>
           )}
         </div>
 
@@ -176,5 +230,4 @@ const RecipeUpload: React.FC = () => {
     </div>
   );
 };
-
 export default RecipeUpload;
