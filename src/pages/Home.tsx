@@ -32,7 +32,7 @@ const Home = () => {
           width="100%"
           height="auto"
         />
-        <h2>All Recipes</h2>
+        <h2 className="subtitle">All Recipes</h2>
         <div className="recipeContainer">
           {recipes.map((recipe) => (
             <RecipeCard recipe={recipe} />
