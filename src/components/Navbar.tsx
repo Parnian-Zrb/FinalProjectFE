@@ -1,29 +1,27 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useState } from "react";
 // import { useState } from "react";
-
+import logo from "../assets/food.jpg"
 const Navbar = () => {
   // const [menuOpen, setMenuOpen] = useState(false);
+  const [userId, setUserId] = useState('12')
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        {/* <img src="/logo.png" alt="Logo" /> */}
-        Home
+        <img src={logo}  height="50px" alt="Logo" />
       </Link>
       <div className="nav-links">
         <Link to="/" className="nav-link">
           Home
         </Link>
-        <Link to="/AboutUs" className="nav-link">
+        <Link to="/about" className="nav-link">
           About Us
         </Link>
-        <Link to="/recipeDetails" className="nav-link">
-          Recipe Details
-        </Link>
-        <Link to="/recipeUpload" className="nav-link">
+        <Link to="/recipe-upload" className="nav-link">
           Upload Recipe
         </Link>
-        <Link to="/UserProfile" className="nav-link">
+        <Link to={`/user/${userId}`} className="nav-link">
           Profile
         </Link>
       </div>

@@ -22,24 +22,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/recipeUpload",
+        path: "/recipe-upload",
         element: <RecipeUpload />,
       },
       {
-        path: "/recipeDetails",
+        path: "/recipe/:id",
         element: <RecipeDetails />,
       },
       {
-        path: "/recipeDetails/:id",
-        element: <RecipeDetails />,
-      },
-
-      {
-        path: "/userProfile",
+        path: "/user/:id",
         element: <UserProfile />,
       },
       {
-        path: "/aboutUs",
+        path: "/about",
         element: <AboutUs />,
       },
     ],

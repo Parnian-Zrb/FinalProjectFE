@@ -50,7 +50,6 @@ const RecipeDetails = ({
       
       <main>
       <div className="recipe-image">
-        {image}
         <img src='https://media.istockphoto.com/id/1156304531/photo/hands-with-the-phone-close-up-pictures-of-food.jpg?s=1024x1024&w=is&k=20&c=eGTWUqsEBCkkVhliE0QVxZ5IHdwJJwWMwur89LEmizg=' alt="Recipe Image" />
       </div>
       
