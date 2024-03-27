@@ -43,7 +43,7 @@ const Home = () => {
         <h2 className="subtitle">All Recipes</h2>
         <div className="recipeContainer">
           {recipes.map((recipe) => (
-            <RecipeCard recipe={recipe} />
+            <RecipeCard key={recipe._id} recipe={recipe} />
           ))}
         </div>
       </div>
