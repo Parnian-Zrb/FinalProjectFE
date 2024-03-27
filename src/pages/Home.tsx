@@ -8,6 +8,7 @@ import logoIcon from "../assets/LogoIcon.png";
 
 const Home = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -20,13 +21,22 @@ const Home = () => {
     };
     fetchRecipes();
   }, []);
+
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="content-margin">
         <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
         <div className="searchBar">
-          <input type="text" placeholder="Search.." />
-          <button>Submit</button>
+          <input
+            type="text"
+            placeholder="Search.."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
         <h1 className="headline">Find Your Inspiration Here!</h1>
@@ -42,7 +52,7 @@ const Home = () => {
         />
         <h2 className="subtitle">All Recipes</h2>
         <div className="recipeContainer">
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <RecipeCard key={recipe._id} recipe={recipe} />
           ))}
         </div>

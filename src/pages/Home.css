@@ -42,10 +42,30 @@
   object-fit: contain;
 }
 
+
 .searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  width: 100%;
-}
+  margin-top: 20px; 
+
+ }
+ 
+ .searchBar input {
+  height: 30px;
+  width: 80%; 
+  padding: 10px 30px;
+  border: 2px solid #ccc;
+  border-radius: 30px; 
+  background-color: white;
+  outline: none;
+ }
+ 
+ .searchBar input::placeholder {
+  color: #999;
+ }
+ 
+
+ .searchBar input:focus {
+  border-color: #e8751a; 
+ }
