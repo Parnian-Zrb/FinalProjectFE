@@ -8,8 +8,8 @@ import "./AboutUs.css";
 const AboutUs: React.FC = () => {
   return (
     <div>
-      <h1>AboutUs</h1>
-      <p>
+      <h1 className="about-title">AboutUs</h1>
+      <p className="about-p">
         Welcome to our food sharing recipe about page! Here, we believe in the
         power of community, connection, and delicious food. Our platform is
         dedicated to fostering a culture of sharing homemade recipes, culinary

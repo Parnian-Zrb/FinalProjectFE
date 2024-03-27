@@ -1,10 +1,10 @@
-h1 {
+about-title {
   display: flex;
   align-items: center;
   justify-content: center;
   
 }
-p {
+about-p {
   display: flex;
   align-items: center;
   justify-content: center;
