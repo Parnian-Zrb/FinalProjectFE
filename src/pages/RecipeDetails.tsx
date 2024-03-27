@@ -45,12 +45,12 @@ const RecipeDetail = () => {
 
         <div className="recipe-info-container">
           <div className="recipe-info">
-            <h2>Ingredients:</h2>
-            {recipe?.ingredients.map((ingredient, index) => (
+            <h2>Ingredients: {recipe?.ingredients}</h2>
+            {/* {recipe?.ingredients.map((ingredient, index) => (
               <div key={index}>
-                {ingredient.name} - {ingredient.quantity}
-              </div>
-            ))}
+                {ingredient.name} - {ingredient.quantity} */}
+              {/* </div> */}
+            {/* ))} */}
           </div>
           <div className="recipe-info">
             <h2>Preparation Time: {recipe?.preparationTime}</h2>
