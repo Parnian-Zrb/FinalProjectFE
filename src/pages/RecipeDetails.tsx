@@ -35,44 +35,55 @@ const RecipeDetail = () => {
     <div className="recipe-details">
       <header>
         <h1>{recipe?.name}</h1>
-        <p> Navigation Links, Save/Favorite Button, Share Buttons </p>
+        <p>Preparation Time: {recipe?.preparationTime} mins</p>
+        <p>{recipe?.description}</p>
       </header>
 
       <main>
         <div className="recipe-image">
           <img src={recipe?.image} alt="Recipe Image" />
         </div>
-
         <div className="recipe-info-container">
           <div className="recipe-info">
+            <h2>Category:</h2>
+            <p>{recipe?.category}</p>
+          </div>
+
+          <div className="recipe-info">
+            <h2>Difficulty:</h2>
+            <p>{recipe?.difficulty}</p>
+          </div>
+
+          <div className="recipe-info">
+            <h2>Servings for:</h2>
+            <p>{recipe?.servings}</p>
+          </div>
+
+          <div className="recipe-info">
+            <h2>Preparation Time:</h2>
+            <p>{recipe?.preparationTime} mins</p>
+          </div>
+
+          <div className="recipe-info">
             <h2>Ingredients:</h2>
-            {recipe?.ingredients.map((ingredient, index) => (
-              <div key={index}>
-                {ingredient.name} - {ingredient.quantity}
-              </div>
-            ))}
-          </div>
-          <div className="recipe-info">
-            <h2>Preparation Time: {recipe?.preparationTime}</h2>
-          </div>
-          <div className="recipe-info">
-            <h2>Introduction: {recipe?.description}</h2>
-          </div>
-          <div className="recipe-info">
-            <h2>Difficulty: {recipe?.difficulty}</h2>
-          </div>
-          <div className="recipe-info">
-            <h2>Category: {recipe?.category}</h2>
-          </div>
-          <div className="recipe-info">
-            <h2>Servings for: {recipe?.servings}</h2>
+            <ul>
+              {recipe?.ingredients.map((ingredient, index) => (
+                <li key={index}>
+                  {ingredient.name} - {ingredient.quantity}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </main>
 
       <section className="Instructions">
         <h2>Instructions:</h2>
-        <p>{recipe?.instructions}</p>
+        <ol>
+          {recipe?.instructions.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ol>
       </section>
 
       <div>

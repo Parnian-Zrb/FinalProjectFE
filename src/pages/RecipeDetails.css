@@ -1,215 +1,122 @@
-/* RecipeDetails.css */
 
-.table {
-  border-collapse: collapse;
-  width: 100%;
-}
-.tr, .td {
-  border: 1px solid rgb(241, 230, 230);
-  padding: 8px;
-  text-align: left;
-  width: 60%;
-  height: 60%;
-}
-th {
-  background-color: #f2f2f2;
-}
-.recipe-details {
-  max-width: 800px;
-  margin: 0 auto;
+ .recipe-details {
+  max-width: 900px;
+  margin: 20px auto;
   padding: 20px;
-}
-
-header {
-  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ header, main, section, footer {
   margin-bottom: 20px;
-}
+ }
+ 
+ h1, h2 {
+  color: #333;
+ }
+ 
 
-header h1 {
-  font-size: 24px;
-}
+ 
+ header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+ }
+ 
+ header p:first-child {
+  font-size: 0.3em;
+  color: #ddd;
+  margin: 0px;
+ }
 
-header p {
-  font-size: 16px;
-  color: #060200;
-}
+ header p:last-child {
+  font-size: 1.2em; 
+  font-weight: medium;
+  margin-top: 0px; 
+ }
 
-.recipe-image {
-  text-align: right;
-  margin-bottom: 20px;
-  margin-left: 10%;
-}
-
-.recipe-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.recipe-info h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.recipe-info p {
-  font-size: 16px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.instructions,
-.meal-plan { 
-  margin-bottom: 20px;
-  border: 1px solid rgb(241, 230, 230);
-}
-
-.instructions h2 { 
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.instructions p { 
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.meal-plan {
-  margin-bottom: 20px;
-}
-
-.meal-plan h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.comments {
-  margin-bottom: 20px;
-  margin-left: 10%; /* corrected from 100% */
-  padding: 10px;
-}
-
-.comments h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.comments form {
-  margin-bottom: 10px;
-}
-
-.comments input[type="text"] {
-  width: 200px;
-  height: 100px;
-  padding: 8px;
-  font-size: 16px;
-}
-
-.comments button {
-  width: 80px;
-  padding: 8px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.comments button:hover {
-  background-color: #0056b3;
-}
-
-button[type="submit"] {
-  display: block;
-  width: 80px;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: start;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.comment_list {
-  margin-bottom: 20px;
+ .recipe-image img {
   width: 100%;
-}
-
-.comment_list h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.comment_list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.comment_list li {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-/* ScrollMenu.css */
-
-.scroll-menu {
-  max-height: 200px; /* Set maximum height for the scroll menu */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.scroll-menu h2 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.scroll-menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.scroll-menu li {
-  padding: 5px 0;
-}
-
-.scroll-menu li:hover {
-  background-color: #f5f5f5; /* Change background color on hover */
-}
-
-.scroll-menu li:first-child {
-  margin-top: 0;
-}
-
-.scroll-menu li:last-child {
-  margin-bottom: 0;
-}
-
-
-
-footer {
+  height: 500px;
+  object-fit: cover;
+ }
+ 
+ .recipe-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+ }
+ 
+ .recipe-info p {
   text-align: left;
-  margin-top: 20px;
+  margin: 0px;
+ }
+
+ .recipe-info ul li,
+.Instructions ol li {
+ margin-bottom: 10px;
 }
 
-footer p {
-  font-size: 14px;
-}
+ .Instructions, .comments-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+ }
+ 
+ .comments-container .comment_list ul {
+  list-style-type: none;
+  padding: 0;
+ }
+ 
+ .comments-container .comment_list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+ }
+ 
+ .comments-container .comments form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }
+ 
+ .comments-container .comments input[type="text"],
+ .comments-container .comments input[type="name"],
+ .comments-container .comments input[type="Email"] {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+ }
+ 
+ .comments-container .comments button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+ }
+ 
+ .comments-container .comments button:hover {
+  background-color: #0056b3;
+ }
 
-footer nav {
-  margin-top: 10px;
-}
+ .scroll-menu {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+ }
 
-footer nav a {
-  margin-right: 10px;
-  font-size: 14px;
-}
+ footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+ }
+ 
+ footer nav a {
+  margin: 0 10px;
+ }
