@@ -6,7 +6,6 @@ import "./RecipeUpload.css";
 
 // Define the RecipeType interface
 export interface RecipeType {
-  _id: string;
   name: string;
   introduction: string;
   preparationTime: number;
@@ -16,8 +15,6 @@ export interface RecipeType {
   instructions: string[];
   difficulty: string[];
   createdAt: Date;
-  userId: string;
-  mealPlan: string;
   category: string;
   description: string;
   tags: string;
@@ -26,7 +23,7 @@ export interface RecipeType {
 const RecipeSchema = Yup.object().shape({
   name: Yup.string().required("Recipe name is required"),
   category: Yup.string().required("Category is required"),
-  introduction: Yup.string().required("Introduction is required"),
+  // introduction: Yup.string().required("Introduction is required"),
   image: Yup.string()
     .url("Must be a valid URL")
     .required("Image URL is required"),
@@ -49,7 +46,6 @@ const Header = () => {
 const RecipeUpload: React.FC = () => {
   const formik = useFormik<RecipeType>({
     initialValues: {
-      _id: "",
       name: "",
       introduction: "",
       preparationTime: 0,
@@ -59,8 +55,6 @@ const RecipeUpload: React.FC = () => {
       instructions: [],
       difficulty: [],
       createdAt: new Date(),
-      userId: "",
-      mealPlan: "",
       category: "",
       description: "",
       tags: "",
