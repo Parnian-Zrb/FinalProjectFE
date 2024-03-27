@@ -5,6 +5,7 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   margin: 0;
+  color: #333333;
 }
 
 h1,
@@ -15,4 +16,5 @@ h5,
 h6 {
   font-family: "Inter", sans-serif;
   font-weight: 700;
+  color: #333333;
 }
