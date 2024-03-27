@@ -1,3 +1,10 @@
+.carousel-image {
+  width: 100%; 
+  height: 380px; 
+  object-fit: cover; 
+ }
+
+
 .recipeContainer {
   display: flex;
   justify-content: flex-start;
@@ -13,6 +20,7 @@
   color: #e8751a;
   font-family: "Inter", sans-serif;
   font-weight: 700;
+  margin: 10px auto;
 }
 
 .welcomeMessage {
@@ -20,14 +28,14 @@
   color: #333333;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: 800px;
   font-size: 1rem;
 }
 
 .content-margin {
   margin: 105px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .subtitle {
@@ -37,8 +45,8 @@
 .logo-icon {
   display: block;
   margin: 0 auto;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
