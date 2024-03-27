@@ -13,7 +13,11 @@ about-p {
   margin-right: 10%;
 }
 
+.about-container{
+  margin-left: 105px;
+  margin-right: 105px;
 
+}
 
 .ProfileCardContainer {
   align-items: center;
