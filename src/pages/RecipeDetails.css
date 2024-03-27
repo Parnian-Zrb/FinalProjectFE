@@ -20,12 +20,39 @@
  header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
  }
  
+ .recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ 
+ .share-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 5px;
+  color: grey; 
+ }
+ 
+ .share-button:hover {
+  color: #E8751A; 
+ }
+
+ .favorite-button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+
+
  header p:first-child {
   font-size: 0.3em;
   color: #ddd;
@@ -68,6 +95,27 @@
   border-radius: 5px;
  }
  
+ .mealplan-button{
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: medium;
+  color: white;
+  background-color: #E8751A;
+  border-radius: 25px;
+  padding: 8px 25px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+ }
+
+.comment-container{
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* 
  .comments-container .comment_list ul {
   list-style-type: none;
   padding: 0;
@@ -119,4 +167,4 @@
  
  footer nav a {
   margin: 0 10px;
- }
+ } */
