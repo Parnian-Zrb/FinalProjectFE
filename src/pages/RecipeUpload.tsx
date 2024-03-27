@@ -11,13 +11,16 @@ export interface RecipeType {
   preparationTime: number;
   servings: number;
   image: string;
-  ingredients: string[];
+  ingredients: string;
   instructions: string[];
   difficulty: string[];
   createdAt: Date;
   category: string;
   description: string;
   tags: string;
+  userId: string;
+  mealPlan: string;
+  _id: string; 
 }
 
 const RecipeSchema = Yup.object().shape({
@@ -51,13 +54,16 @@ const RecipeUpload: React.FC = () => {
       preparationTime: 0,
       servings: 0,
       image: "",
-      ingredients: [],
+      ingredients: "",
       instructions: [],
       difficulty: [],
       createdAt: new Date(),
       category: "",
       description: "",
       tags: "",
+      userId: "",
+      mealPlan: "",
+      _id: "",
     },
     validationSchema: RecipeSchema,
     onSubmit: async (values, { resetForm }) => {
