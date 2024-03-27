@@ -52,7 +52,7 @@ const UserProfile = () => {
       </div>
       <section className="meal-plan-section">
         <h2>Meal Plan</h2>
-        {defaultMessage("Meal Plan", userRecipes)}
+
         <MealPlanSection />
       </section>
       <section>
@@ -66,7 +66,7 @@ const UserProfile = () => {
       </section>
       <section>
         <h2>Published Recipes</h2>
-        {defaultMessage("Publish Recipe", userRecipes)}
+
         <div className="recipeContainer">
           {userRecipes.map((recipe) => (
             <RecipeCard key={recipe._id} recipe={recipe} />

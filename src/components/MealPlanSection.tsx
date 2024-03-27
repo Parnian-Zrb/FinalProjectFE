@@ -5,8 +5,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
 export default function DateCalendarValue() {
-  const [value, setValue] = React.useState<Dayjs | null>(dayjs("2022-04-17"));
-  const [selectedDate, setSelectedDate] = React.useState<string | null>(null);
+  const [value, setValue] = React.useState<Dayjs | null>(dayjs());
+  const [selectedDate, setSelectedDate] = React.useState<string | null>(
+    dayjs().format("YYYY-MM-DD")
+  );
 
   const handleDateChange = (newValue: Dayjs | null) => {
     setValue(newValue);
