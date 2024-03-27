@@ -3,6 +3,27 @@ import { RecipeType } from "../types/Recipe";
 import { useEffect, useState } from "react";
 import { getRecipeById } from "../api/recipeApi";
 import { useParams } from "react-router-dom";
+import CommentSection from "../components/Comment";
+import { Favorite, Share } from "@mui/icons-material";
+import { useFavoriteStore } from "../store/useFavouriteStore";
+
+const mockComments = [
+  {
+    name: "Alice",
+    email: "alice@gmail.com",
+    text: "This recipe was amazing! I loved the combination of flavors and how easy it was to follow. Definitely adding it to my favorites list!",
+  },
+  {
+    name: "Bob",
+    email: "bob@gmail.com",
+    text: "I tried making this recipe, but I found it a bit too complicated for my taste. Maybe simplifying the instructions would help.",
+  },
+  {
+    name: "Eve",
+    email: "eve@gmail.com",
+    text: "This recipe was good, but I made a few modifications to suit my preferences. Instead of using chicken, I substituted tofu, and it turned out great!",
+  },
+];
 
 const RecipeDetail = () => {
   const { id = "" } = useParams();
@@ -26,127 +47,130 @@ const RecipeDetail = () => {
     fetchRecipe();
   }, [id]);
 
-  const handleSubmitComment = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle submitting comment
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const copyUrlToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("URL copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy URL: ", err);
+    }
   };
 
+  const isFavorite = useFavoriteStore((state) =>
+    state.favorites.some((fav) => fav._id === recipe?._id)
+  );
+
   return (
-    <div className="recipe-details">
-      <header>
-        <h1>{recipe?.name}</h1>
-        <p>Preparation Time: {recipe?.preparationTime} mins</p>
-        <p>{recipe?.description}</p>
-      </header>
-
-      <main>
-        <div className="recipe-image">
-          <img src={recipe?.image} alt="Recipe Image" />
-        </div>
-        <div className="recipe-info-container">
-          <div className="recipe-info">
-            <h2>Category:</h2>
-            <p>{recipe?.category}</p>
+    <div>
+      <div className="recipe-details">
+        <header>
+          <div className="recipe-header">
+            <h1>{recipe?.name}</h1>
+            <div className="recipe-icons">
+              <button
+                aria-label="add to favorites"
+                className="favorite-button"
+                onClick={() => {
+                  if (recipe) {
+                    if (isFavorite) {
+                      useFavoriteStore.getState().removeFromFavorites(recipe);
+                    } else {
+                      useFavoriteStore.getState().setToFavorites(recipe);
+                    }
+                  }
+                }}
+              >
+                <Favorite sx={{ color: isFavorite ? "#ff3c3c" : "#c1c1c1" }} />
+              </button>
+              <button onClick={copyUrlToClipboard} className="share-button">
+                <Share />
+              </button>
+            </div>
           </div>
+          <p>Preparation Time: {recipe?.preparationTime} mins</p>
+          <p>{recipe?.description}</p>
+        </header>
 
-          <div className="recipe-info">
-            <h2>Difficulty:</h2>
-            <p>{recipe?.difficulty}</p>
+        <main>
+          <div className="recipe-image">
+            <img src={recipe?.image} alt="Recipe Image" />
           </div>
+          <div className="recipe-info-container">
+            <div className="recipe-info">
+              <h2>Category:</h2>
+              <p>{recipe?.category}</p>
+            </div>
 
-          <div className="recipe-info">
-            <h2>Servings for:</h2>
-            <p>{recipe?.servings}</p>
+            <div className="recipe-info">
+              <h2>Difficulty:</h2>
+              <p>{recipe?.difficulty}</p>
+            </div>
+
+            <div className="recipe-info">
+              <h2>Servings for:</h2>
+              <p>{recipe?.servings}</p>
+            </div>
+
+            <div className="recipe-info">
+              <h2>Preparation Time:</h2>
+              <p>{recipe?.preparationTime} mins</p>
+            </div>
+
+            <div className="recipe-info">
+              <h2>Ingredients:</h2>
+              <ul>
+                {recipe?.ingredients.map((ingredient, index) => (
+                  <li key={index}>
+                    {ingredient.name} - {ingredient.quantity}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-
-          <div className="recipe-info">
-            <h2>Preparation Time:</h2>
-            <p>{recipe?.preparationTime} mins</p>
-          </div>
-
-          <div className="recipe-info">
-            <h2>Ingredients:</h2>
-            <ul>
-              {recipe?.ingredients.map((ingredient, index) => (
-                <li key={index}>
-                  {ingredient.name} - {ingredient.quantity}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </main>
-
-      <section className="Instructions">
-        <h2>Instructions:</h2>
-        <ol>
-          {recipe?.instructions.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      </section>
+        </main>
+        <section className="Instructions">
+          <h2>Instructions:</h2>
+          <ol>
+            {recipe?.instructions.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ol>
+        </section>
+        <button className="mealplan-button">Add to my Meal Plan</button>
+      </div>
 
       <div>
-        <section className="meal-plan">
-          <h2>Meal Plan: {recipe?.mealPlan}</h2>
-          {recipe?.mealPlan}
+        <section className="comment-container">
+          <h2>Comments</h2>
+          <CommentSection comments={mockComments} />
         </section>
       </div>
-
-      <div className="comments-container">
-        <div className="comment_list">
-          <h2>Comment list</h2>
-          <ul>
-            <li>First Comment</li>
-            <li>Second Comment</li>
-            <li>Third Comment</li>
-            <li>Forth Comment</li>
-          </ul>
-        </div>
-        <div className="comments">
-          <h2>Comments:</h2>
-          <form onSubmit={handleSubmitComment}>
-            <h2>Name</h2>
-            <input type="name" placeholder="Name" />
-            <h2>Email</h2>
-            <input type="Email" placeholder="Email" />
-            <h2>Comments</h2>
-            <input type="text" placeholder="Add a comment" />
-            <button className="comments button" type="submit">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div className="scroll-menu">
-        <h2>Related Recipe-same category </h2>
-        Here are :A scroll-menu of 5 recipes in this category
-        {/* <ul>
-          {recipeTitles.map((title, index) => (
-            <li key={index}>{title}</li>
-          ))}
-        </ul> */}
-      </div>
-      <div className="scroll-menu">
-        <h2>Recipe Titles</h2>
-        Here are :A scroll-menu of ten top favorites recipes
-        {/* <ul>
-          {recipeTitles.map((title, index) => (
-            <li key={index}>{title}</li>
-          ))}
-        </ul> */}
-      </div>
-
-      <footer>
-        <p>Copyright © {new Date().getFullYear()} FoodSharing Group</p>
-        <nav>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Contact Us</a>
-        </nav>
-      </footer>
     </div>
+
+    //   </div>
+    //   <div className="scroll-menu">
+    //     <h2>Recipe Titles</h2>
+    //     Here are :A scroll-menu of ten top favorites recipes
+    //     {/* <ul>
+    //       {recipeTitles.map((title, index) => (
+    //         <li key={index}>{title}</li>
+    //       ))}
+    //     </ul> */}
+    //   </div>
+
+    //   <footer>
+    //     <p>Copyright © {new Date().getFullYear()} FoodSharing Group</p>
+    //     <nav>
+    //       <a href="#">Privacy Policy</a>
+    //       <a href="#">Terms of Service</a>
+    //       <a href="#">Contact Us</a>
+    //     </nav>
+    //   </footer>
+    // </div>
   );
 };
 

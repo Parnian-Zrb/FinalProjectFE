@@ -1,0 +1,37 @@
+.commentSection {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+ }
+ 
+ .commentList {
+  list-style-type: none;
+  padding: 0;
+ }
+ 
+ .commentItem {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+ }
+ 
+ .commentItem:last-child {
+  border-bottom: none;
+ }
+
+ .commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+ }
+ 
+ .commentFormInput,
+ .commentFormTextarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ }
+ 
+ 
