@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { RecipeType } from "../types/Recipe";
 import { getUserById } from "../api/userApi";
 import "./UserProfile.css";
+import MealPlanSection from "../components/MealPlanSection";
 
 const UserProfile = () => {
   const { favorites } = useFavoriteStore();
@@ -52,6 +53,7 @@ const UserProfile = () => {
       <section className="meal-plan-section">
         <h2>Meal Plan</h2>
         {defaultMessage("Meal Plan", userRecipes)}
+        <MealPlanSection />
       </section>
       <section>
         <h2>Favorite Recipes</h2>
