@@ -5,7 +5,7 @@ export interface RecipeType {
   preparationTime: number;
   servings: number;
   image: string;
-  ingredients: Ingredient[];
+  ingredients: string;
   instructions: string[];
   difficulty: string[];
   tags: string;
