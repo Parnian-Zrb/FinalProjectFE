@@ -7,7 +7,7 @@ import ShellyImage from "../assets/Shelly.jpg";
 import "./AboutUs.css";
 const AboutUs: React.FC = () => {
   return (
-    <div>
+    <div className="about-container">
       <h1 className="about-title">AboutUs</h1>
       <p className="about-p">
         Welcome to our food sharing recipe about page! Here, we believe in the
