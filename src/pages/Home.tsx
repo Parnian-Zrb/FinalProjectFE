@@ -21,6 +21,16 @@ const Home = () => {
   return (
     <>
       <div className="content-margin">
+        <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
+        <div className="searchBar">
+          <input
+            type="text"
+            placeholder="Search.."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
         <h1 className="headline">Find Your Inspiration Here!</h1>
         <p className="welcomeMessage">
           Welcome to our food sharing recipe website! Explore recipes, cooking
@@ -34,8 +44,8 @@ const Home = () => {
         />
         <h2 className="subtitle">All Recipes</h2>
         <div className="recipeContainer">
-          {recipes.map((recipe) => (
-            <RecipeCard recipe={recipe} />
+          {filteredRecipes.map((recipe) => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
           ))}
         </div>
       </div>
