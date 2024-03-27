@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { RecipeType } from "../types/Recipe";
 import { getUserById } from "../api/userApi";
 import "./UserProfile.css";
+import MealPlanSection from "../components/MealPlanSection";
 
 const UserProfile = () => {
   const { favorites } = useFavoriteStore();
@@ -29,6 +30,8 @@ const UserProfile = () => {
     const fetchUser = async () => {
       try {
         const response = await getUserById("65fe28de7dde309c823adb5e");
+        // console.log(response.data.data.favoriteRecipes);
+        // setToFavorites(response.data.data.favoriteRecipes);
         setUser(response.data.data);
         setUserRecipes(response.data.data.uploadedRecipes);
       } catch (error) {
@@ -50,6 +53,7 @@ const UserProfile = () => {
       <section className="meal-plan-section">
         <h2>Meal Plan</h2>
         {defaultMessage("Meal Plan", userRecipes)}
+        <MealPlanSection />
       </section>
       <section>
         <h2>Favorite Recipes</h2>
