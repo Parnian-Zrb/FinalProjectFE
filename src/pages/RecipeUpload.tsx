@@ -3,17 +3,18 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/recipeApi";
 import "./RecipeUpload.css";
+import { RecipeType } from "../types/Recipe";
 
 // Define the RecipeType interface
-export interface RecipeType {
+export interface recipeType {
   name: string;
   introduction: string;
   preparationTime: number;
   servings: number;
   image: string;
   ingredients: string;
-  instructions: string[];
-  difficulty: string[];
+  instructions: ["name","quantity"];
+  difficulty: ["easy", "medium", "difficult"];
   createdAt: Date;
   category: string;
   description: string;
@@ -54,9 +55,9 @@ const RecipeUpload: React.FC = () => {
       preparationTime: 0,
       servings: 0,
       image: "",
-      ingredients: "",
+      ingredients: [{ name: "", quantity: "" }],
       instructions: [],
-      difficulty: [],
+      difficulty: ["easy", "medium", "difficult"],
       createdAt: new Date(),
       category: "",
       description: "",
@@ -150,6 +151,8 @@ const RecipeUpload: React.FC = () => {
             value={formik.values.image}
             onBlur={formik.handleBlur}
           />
+         
+
           {formik.touched.image && formik.errors.image && (
             <div className="error">{formik.errors.image}</div>
           )}
@@ -157,16 +160,34 @@ const RecipeUpload: React.FC = () => {
 
         <div className="form-group">
           <label htmlFor="ingredients">Ingredients</label>
-          <input
-            id="ingredients"
-            name="ingredients"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.ingredients}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.ingredients && formik.errors.ingredients && (
-            <div className="error">{formik.errors.ingredients}</div>
+          {formik.values.ingredients.map((ingredient, index) => (
+            <div key={index} className="form-group">
+              <label htmlFor={`ingredients[${index}].name`}>Ingredient Name</label>
+              <input
+                type="text"
+                name={`ingredients[${index}].name`}
+                value={ingredient.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <label htmlFor={`ingredients[${index}].quantity`}>Quantity</label>
+              <input
+                type="text"
+                name={`ingredients[${index}].quantity`}
+                value={ingredient.quantity}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+           </div>
+         ))}
+          {formik.touched.ingredients && formik.errors.ingredients && Array.isArray(formik.errors.ingredients) && (
+            <div className="error">
+              {formik.errors.ingredients.map((error, index) => (
+                <div key={index}>
+                  {typeof error === 'string' ? error : Object.values(error).join(', ')}
+                </div>
+              ))}
+            </div>
           )}
         </div>
 
