@@ -96,51 +96,51 @@ const RecipeDetail = () => {
         </header>
 
         <main>
-          <div className="recipe-image">
-            <img src={recipe?.image} alt="Recipe Image" />
-          </div>
-          <div className="recipe-info-container">
-            <div className="recipe-info">
-              <h2>Category:</h2>
-              <p>{recipe?.category}</p>
-            </div>
+  <div className="recipe-image">
+    <img src={recipe?.image} alt="Recipe Image" />
+  </div>
+  <div className="recipe-info-container">
+    <div className="recipe-info">
+      <h2>Category:</h2>
+      <p>{recipe?.category}</p>
+    </div>
 
-            <div className="recipe-info">
-              <h2>Difficulty:</h2>
-              <p>{recipe?.difficulty}</p>
-            </div>
+    <div className="recipe-info">
+      <h2>Difficulty:</h2>
+      <p>{recipe?.difficulty}</p>
+    </div>
 
-            <div className="recipe-info">
-              <h2>Servings for:</h2>
-              <p>{recipe?.servings}</p>
-            </div>
+    <div className="recipe-info">
+      <h2>Servings for:</h2>
+      <p>{recipe?.servings}</p>
+    </div>
 
-            <div className="recipe-info">
-              <h2>Preparation Time:</h2>
-              <p>{recipe?.preparationTime} mins</p>
-            </div>
+    <div className="recipe-info">
+      <h2>Preparation Time:</h2>
+      <p>{recipe?.preparationTime} mins</p>
+    </div>
 
-            <div className="recipe-info">
-              <h2>Ingredients:</h2>
-              <ul>
-                {recipe?.ingredients.map((ingredient, index) => (
-                  <li key={index}>
-                    {ingredient.name} - {ingredient.quantity}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </main>
-        <section className="Instructions">
-          <h2>Instructions:</h2>
-          <ol>
-            {recipe?.instructions.map((step, index) => (
-              <li key={index}>{step}</li>
-            ))}
-          </ol>
-        </section>
-        <button className="mealplan-button">Add to my Meal Plan</button>
+    <div className="recipe-info">
+      <h2>Ingredients:</h2>
+      <ul>
+        {recipe?.ingredients && recipe.ingredients.map((ingredient, index) => (
+          <li key={index}>
+            {ingredient.name} - {ingredient.quantity}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</main>
+<section className="Instructions">
+  <h2>Instructions:</h2>
+  <ol>
+    {recipe?.instructions && recipe.instructions.map((step, index) => (
+      <li key={index}>{step}</li>
+    ))}
+  </ol>
+</section>
+<button className="mealplan-button">Add to my Meal Plan</button>
       </div>
 
       <div>
@@ -150,27 +150,6 @@ const RecipeDetail = () => {
         </section>
       </div>
     </div>
-
-    //   </div>
-    //   <div className="scroll-menu">
-    //     <h2>Recipe Titles</h2>
-    //     Here are :A scroll-menu of ten top favorites recipes
-    //     {/* <ul>
-    //       {recipeTitles.map((title, index) => (
-    //         <li key={index}>{title}</li>
-    //       ))}
-    //     </ul> */}
-    //   </div>
-
-    //   <footer>
-    //     <p>Copyright © {new Date().getFullYear()} FoodSharing Group</p>
-    //     <nav>
-    //       <a href="#">Privacy Policy</a>
-    //       <a href="#">Terms of Service</a>
-    //       <a href="#">Contact Us</a>
-    //     </nav>
-    //   </footer>
-    // </div>
   );
 };
 

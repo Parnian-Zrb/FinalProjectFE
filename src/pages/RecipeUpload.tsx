@@ -3,17 +3,18 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createRecipe } from "../api/recipeApi";
 import "./RecipeUpload.css";
+import { RecipeType } from "../types/Recipe";
 
 // Define the RecipeType interface
-export interface RecipeType {
+export interface recipeType {
   name: string;
   introduction: string;
   preparationTime: number;
   servings: number;
   image: string;
   ingredients: string;
-  instructions: string[];
-  difficulty: string[];
+  instructions: ["name","quantity"];
+  difficulty: ["easy", "medium", "difficult"];
   createdAt: Date;
   category: string;
   description: string;
@@ -54,9 +55,9 @@ const RecipeUpload: React.FC = () => {
       preparationTime: 0,
       servings: 0,
       image: "",
-      ingredients: "",
+      ingredients: [{ name: "", quantity: "" }],
       instructions: [],
-      difficulty: [],
+      difficulty: ["easy", "medium", "difficult"],
       createdAt: new Date(),
       category: "",
       description: "",
@@ -82,7 +83,7 @@ const RecipeUpload: React.FC = () => {
       <Header />
       <form onSubmit={formik.handleSubmit} className="form">
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name*</label>
           <input
             id="name"
             name="name"
@@ -97,7 +98,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Description*</label>
           <textarea
             id="description"
             name="description"
@@ -111,7 +112,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="preparationTime">Preparation Time (minutes)</label>
+          <label htmlFor="preparationTime">Preparation Time* (minutes)</label>
           <input
             id="preparationTime"
             name="preparationTime"
@@ -126,7 +127,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="servings">Servings</label>
+          <label htmlFor="servings">Servings* (person)</label>
           <input
             id="servings"
             name="servings"
@@ -141,7 +142,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="image">Image URL</label>
+          <label htmlFor="image">Image Link*</label>
           <input
             id="image"
             name="image"
@@ -150,28 +151,48 @@ const RecipeUpload: React.FC = () => {
             value={formik.values.image}
             onBlur={formik.handleBlur}
           />
+         
+
           {formik.touched.image && formik.errors.image && (
             <div className="error">{formik.errors.image}</div>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="ingredients">Ingredients</label>
-          <input
-            id="ingredients"
-            name="ingredients"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.ingredients}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.ingredients && formik.errors.ingredients && (
-            <div className="error">{formik.errors.ingredients}</div>
+          <label htmlFor="ingredients">Ingredients*  </label>
+          {formik.values.ingredients.map((ingredient, index) => (
+            <div key={index} className="form-group">
+              <label htmlFor={`ingredients[${index}].name`}>Ingredient Name (salt, egg,..)</label>
+              <input
+                type="text"
+                name={`ingredients[${index}].name`}
+                value={ingredient.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <label htmlFor={`ingredients[${index}].quantity`}>Ingredient Quantity (1 tb, 1,...)</label>
+              <input
+                type="text"
+                name={`ingredients[${index}].quantity`}
+                value={ingredient.quantity}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+           </div>
+         ))}
+          {formik.touched.ingredients && formik.errors.ingredients && Array.isArray(formik.errors.ingredients) && (
+            <div className="error">
+              {formik.errors.ingredients.map((error, index) => (
+                <div key={index}>
+                  {typeof error === 'string' ? error : Object.values(error).join(', ')}
+                </div>
+              ))}
+            </div>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="instructions">Instructions</label>
+          <label htmlFor="instructions">Instruction*</label>
           <textarea
             id="instructions"
             name="instructions"
@@ -185,7 +206,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="difficulty">Difficulty</label>
+          <label htmlFor="difficulty">Difficulty*</label>
           <select
             id="difficulty"
             name="difficulty"
@@ -193,7 +214,7 @@ const RecipeUpload: React.FC = () => {
             onBlur={formik.handleBlur}
             value={formik.values.difficulty}
           >
-            <option value="">Select Difficulty</option>
+            <option value="">Select Difficulty*</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="difficult">Difficult</option>
@@ -204,7 +225,7 @@ const RecipeUpload: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category">Category*</label>
           <select
             id="category"
             name="category"
