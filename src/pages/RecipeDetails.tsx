@@ -140,7 +140,14 @@ const RecipeDetail = () => {
     ))}
   </ol>
 </section>
+<button className="mealplan-button">Add to my Meal Plan</button>
+      </div>
 
+      <div>
+        <section className="comment-container">
+          <h2>Comments</h2>
+          <CommentSection comments={mockComments} />
+        </section>
       </div>
     </div>
   );
